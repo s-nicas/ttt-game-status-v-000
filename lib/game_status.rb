@@ -18,14 +18,21 @@ end
  
 def won?(board)
   WIN_COMBINATIONS.detect do |win_combo|
-   
-      board[win_combo[0]] == board[win_combo[1]] && board[win_combo[2]] == board[win_combo[1]] && position_taken?(board, win_combo[1]) 
-      
+     board[win_combo[0]] == board[win_combo[1]] && board[win_combo[2]] == board[win_combo[1]] && position_taken?(board, win_combo[1]) 
  end 
 end    
+
 
 def full?(board)
  board.all? do |position|
    position == "X" || position == "O"
  end
 end 
+
+
+def draw(board)
+  if full?(board) && !won?board
+    return true 
+  else 
+    return false 
+end  
